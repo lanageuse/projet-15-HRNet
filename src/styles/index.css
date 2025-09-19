@@ -1,68 +1,57 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Font family */
+  --HR-font-family-base: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --HR-font-family-heading: "Poppins", "Helvetica Neue", Arial, sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Font sizes */
+  --HR-text-xs: 0.75rem; /* 12px */
+  --HR-text-sm: 0.875rem; /* 14px */
+  --HR-text-base: 1rem; /* 16px */
+  --HR-text-lg: 1.125rem; /* 18px */
+  --HR-text-xl: 1.25rem; /* 20px */
+  --HR-text-2xl: 1.5rem; /* 24px */
+  --HR-text-3xl: 1.875rem; /* 30px */
+  --HR-text-4xl: 2.25rem; /* 36px */
+  --HR-text-5xl: 3rem; /* 48px */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* theme-color */
+  --HR-primary-dark: #34285c; /* Couleur principale sombre */
+  --HR-primary: #4f427d; /* Couleur principale */
+  --HR-primary-light: #695aad; /* Couleur principale claire */
+  --HR-neutral-light: #d5d5d5; /* Gris clair (fond, bordures) */
+  --HR-neutral-dark: #1b1b1c; /* Gris très foncé (texte, fond sombre) */
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  /* Headings */
+  --HR-h1-size: var(--HR-text-4xl);
+  --HR-h2-size: var(--HR-text-3xl);
+  --HR-h3-size: var(--HR-text-2xl);
+  --HR-h4-size: var(--HR-text-xl);
+  --HR-h5-size: var(--HR-text-lg);
+  --HR-h6-size: var(--HR-text-base);
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  /* Font weights */
+  --HR-font-light: 300;
+  --HR-font-normal: 400;
+  --HR-font-medium: 500;
+  --HR-font-semibold: 600;
+  --HR-font-bold: 700;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+  /* Spacing scale */
+  --HR-space-0: 0;
+  --HR-space-1: 0.25rem; /* 4px */
+  --HR-space-2: 0.5rem; /* 8px */
+  --HR-space-3: 0.75rem; /* 12px */
+  --HR-space-4: 1rem; /* 16px */
+  --HR-space-5: 1.25rem; /* 20px */
+  --HR-space-6: 1.5rem; /* 24px */
+  --HR-space-8: 2rem; /* 32px */
+  --HR-space-10: 2.5rem; /* 40px */
+  --HR-space-12: 3rem; /* 48px */
+  --HR-space-16: 4rem; /* 64px */
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  /* Container widths */
+  --HR-container-sm: 640px;
+  --HR-container-md: 768px;
+  --HR-container-lg: 1024px;
+  --HR-container-xl: 1280px;
 }
