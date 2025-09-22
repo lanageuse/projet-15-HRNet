@@ -1,15 +1,15 @@
-import { Link } from "react-router";
-import EmployeeForm from "../components/EmployeeForm";
+import EmployeeForm from "../components/form/Form";
+import { Header } from "../components/header/Header";
 
-type Props = {
-  
-};
+type Props = {};
 
 export default function home({}: Props) {
   return (
-    <div>
-        <EmployeeForm/>
-        <Link to='/employees'>View Current Employees</Link>
-    </div>
-  )
+    <>
+      <Header/>
+      <div className="main">
+        <EmployeeForm />
+      </div>
+    </>
+  );
 }
