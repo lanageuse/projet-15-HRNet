@@ -1,6 +1,7 @@
 /* buttons.css */
 .button {
   display: inline-flex;
+  background-color: transparent;
   align-items: center;
   justify-content: center;
   gap: var(--HR-space-2);
