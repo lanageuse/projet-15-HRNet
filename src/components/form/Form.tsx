@@ -38,7 +38,7 @@ export default function EmployeeForm() {
   return (
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit} aria-labelledby="employee-form-title">
-        <h3 id="employee-form-title" className="my-4">
+        <h3 id="employee-form-title" className="mt-2 mb-4">
           Employee Information
         </h3>
         <div className={style.formGrid}>
