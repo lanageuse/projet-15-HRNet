@@ -15,7 +15,7 @@ export const Header = () => {
             <polygon
               points="100,20 170,60 170,140 100,180 30,140 30,60"
               fill="none"
-              stroke-width="5"
+              strokeWidth="5"
             />
             <circle cx="100" cy="20" r="16" />
             <circle cx="170" cy="60" r="16" />
@@ -26,8 +26,8 @@ export const Header = () => {
             <text
               x="60%"
               y="50%"
-              text-anchor="middle"
-              dominant-baseline="middle"
+              textAnchor="middle"
+              dominantBaseline="middle"
               fontSize="6rem"
               fill="white"
             >
