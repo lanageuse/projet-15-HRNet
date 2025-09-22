@@ -5,7 +5,7 @@
   padding: var(--HR-space-8);
 }
 .formContainer form {
-  min-width: 600px;
+  min-width: var(--HR-container-md);
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--HR-radius-lg);

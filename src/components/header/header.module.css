@@ -13,6 +13,8 @@
     font-weight: var(--HR-font-bold);
     color: var(--primary);
     text-decoration: none;
+    fill: var(--primary);
+    stroke: var(--primary);
 }
 .nav .link{
     color: white;
