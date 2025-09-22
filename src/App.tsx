@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router";
-import "./styles/App.css";
 import { lazy, Suspense } from "react";
 /**
  * Composant principal de l'application qui configure le routage.
@@ -11,7 +10,7 @@ function App() {
   const EmployeeList = lazy(() => import("./pages/employees"));
   return (
     <>
-      <Suspense fallback="loading">
+      <Suspense fallback="loading...">
           <Routes>
             <Route index element={<Home/>}></Route>
             <Route path="/employees" element={<EmployeeList/>}></Route>
