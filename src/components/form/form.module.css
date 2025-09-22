@@ -1,0 +1,33 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--HR-space-8);
+}
+.formContainer form {
+  min-width: 600px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--HR-radius-lg);
+  padding: var(--HR-space-4);
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--HR-space-4);
+  width: 100%;
+}
+
+.formGrid small {
+  font-size: var(--HR-text-xs);
+  color: var(--HR-neutral-light);
+}
+
+@media (max-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .formContainer form {
+    min-width: auto;
+  }
+}
