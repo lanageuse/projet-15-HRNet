@@ -1,43 +1,37 @@
-import { useState, type ChangeEvent } from "react";
 import { useEmployeeStore } from "../../store/employeeStore";
-import { INITIAL_FORM_DATA } from "../../constants";
 import style from "./Form.module.css";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { formSchema, type EmployeeData } from "./formvalidation";
+
 /**
  * Composant formulaire pour créer un nouvel employé.
  * Gère la saisie des informations personnelles, de l'adresse et du département.
  * Utilise le store d'employés pour ajouter l'employé lors de la soumission.
  */
+
 export default function EmployeeForm() {
-  const addEmployee = useEmployeeStore((state) => state.addEmployee);
-
-  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const {
-    firstName,
-    lastName,
-    birthday,
-    startDate,
-    street,
-    city,
-    state,
-    zipCode,
-    department,
-  } = formData;
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<EmployeeData>({
+    resolver: zodResolver(formSchema),
+  });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((formData) => ({ ...formData, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    addEmployee(formData);
+  const addEmployee = useEmployeeStore((state) => state.addEmployee);
+  const onSubmit = (data: EmployeeData) => {
+    addEmployee(data);
+    reset();
   };
 
   return (
     <div className={style.formContainer}>
-      <form onSubmit={handleSubmit} aria-labelledby="employee-form-title">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        aria-labelledby="employee-form-title"
+      >
         <h3 id="employee-form-title" className="mt-2 mb-4">
           Employee Information
         </h3>
@@ -46,54 +40,62 @@ export default function EmployeeForm() {
           <label htmlFor="first-name">
             First Name
             <input
-              value={firstName}
-              onChange={handleChange}
+              {...register("firstName")}
               name="firstName"
               type="text"
               id="first-name"
               aria-required="true"
             />
+            {errors.firstName && (
+              <p className={style.formError}>{errors.firstName.message}</p>
+            )}
           </label>
 
           {/* Last Name */}
           <label htmlFor="last-name">
             Last Name
             <input
-              value={lastName}
-              onChange={handleChange}
+              {...register("lastName")}
               name="lastName"
               type="text"
               id="last-name"
               aria-required="true"
             />
+            {errors.lastName && (
+              <p className={style.formError}>{errors.lastName.message}</p>
+            )}
           </label>
           {/* Date of Birth */}
           <label htmlFor="date-of-birth">
             Date of Birth
             <input
-              value={birthday}
-              onChange={handleChange}
+              {...register("birthday")}
               name="birthday"
               id="date-of-birth"
-              type="text"
+              type="date"
               placeholder="MM/DD/YYYY"
               aria-describedby="date-of-birth-desc"
             />
             <small id="date-of-birth-desc">Format: MM/DD/YYYY</small>
+            {errors.birthday && (
+              <p className={style.formError}>{errors.birthday.message}</p>
+            )}
           </label>
 
           {/* Start Date */}
           <label htmlFor="start-date">
             Start Date
             <input
-              value={startDate}
-              onChange={handleChange}
+              {...register("startDate")}
               name="startDate"
               id="start-date"
-              type="text"
+              type="date"
               aria-describedby="start-date-desc"
             />
             <small id="start-date-desc">Format: MM/DD/YYYY</small>
+            {errors.startDate && (
+              <p className={style.formError}>{errors.startDate.message}</p>
+            )}
           </label>
           {/* Address */}
           <fieldset className={style.fieldset}>
@@ -101,44 +103,54 @@ export default function EmployeeForm() {
             <label htmlFor="street">
               Street
               <input
-                value={street}
-                onChange={handleChange}
+                {...register("street")}
                 name="street"
                 id="street"
                 type="text"
               />
+              {errors.street && (
+                <p className={style.formError}>{errors.street.message}</p>
+              )}
             </label>
             <label htmlFor="city">
               City
-              <input
-                value={city}
-                onChange={handleChange}
-                name="city"
-                id="city"
-                type="text"
-              />
+              <input {...register("city")} name="city" id="city" type="text" />
+              {errors.city && (
+                <p className={style.formError}>{errors.city.message}</p>
+              )}
             </label>
             <label htmlFor="state">
               State
-              <select
-                name="state"
-                value={state}
-                id="state"
-                onChange={handleChange}
-                aria-required="true"
-              ></select>
+              <select {...register("state")} id="state" aria-required="true">
+                <option value="" selected>
+                  --- Choose State ---
+                </option>
+                <option>Sales</option>
+                <option>Marketing</option>
+                <option>Engineering</option>
+                <option>Human Resources</option>
+                <option>Legal</option>
+              </select>
+              {errors.state && (
+                <p className={style.formError}>{errors.state.message}</p>
+              )}
             </label>
 
             <label htmlFor="zip-code">
               Zip Code
               <input
-                value={zipCode}
-                onChange={handleChange}
+                {...register("zipCode", {
+                  setValueAs: (value) => Number(value),
+                })}
+                name="zipCode"
                 id="zip-code"
                 type="number"
                 inputMode="numeric"
                 aria-required="true"
               />
+              {errors.zipCode && (
+                <p className={style.formError}>{errors.zipCode.message}</p>
+              )}
             </label>
           </fieldset>
 
@@ -146,25 +158,30 @@ export default function EmployeeForm() {
           <label htmlFor="department">
             Department
             <select
-              name="department"
-              value={department}
+              {...register("department")}
               id="department"
-              onChange={handleChange}
               aria-required="true"
             >
+              <option value="" selected>
+                --- Choose Department ---
+              </option>
               <option>Sales</option>
               <option>Marketing</option>
               <option>Engineering</option>
               <option>Human Resources</option>
               <option>Legal</option>
             </select>
+            {errors.department && (
+              <p className={style.formError}>{errors.department.message}</p>
+            )}
           </label>
         </div>
         <div className={style.formBtn}>
           <button
-            type="submit"
+            type="button"
             aria-label="Submit form"
             className="button my-4"
+            onClick={() => reset()}
           >
             Cancel
           </button>
