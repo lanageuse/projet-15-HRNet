@@ -23,6 +23,13 @@
   color: var(--HR-neutral-light);
 }
 
+.formBtn{
+  display: flex;
+  gap:var(--HR-space-4);
+  justify-content: end;
+  align-items: center;
+}
+
 @media (max-width: 640px) {
   .formGrid {
     grid-template-columns: 1fr;
