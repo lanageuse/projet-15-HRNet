@@ -38,7 +38,9 @@ export default function EmployeeForm() {
   return (
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit} aria-labelledby="employee-form-title">
-        <h2 id="employee-form-title" className="my-4">Employee Information</h2>
+        <h3 id="employee-form-title" className="my-4">
+          Employee Information
+        </h3>
         <div className={style.formGrid}>
           {/* First Name */}
           <label htmlFor="first-name">
@@ -158,13 +160,22 @@ export default function EmployeeForm() {
             </select>
           </label>
         </div>
-        <button
-          type="submit"
-          aria-label="Submit form"
-          className="button button--primary my-4"
-        >
-          Send
-        </button>
+        <div className={style.formBtn}>
+          <button
+            type="submit"
+            aria-label="Submit form"
+            className="button my-4"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            aria-label="Submit form"
+            className="button button--primary my-4"
+          >
+            Send
+          </button>
+        </div>
       </form>
     </div>
   );
