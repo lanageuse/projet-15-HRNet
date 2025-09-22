@@ -9,7 +9,7 @@ export const Header = () => {
           HRnet
         </Link>
         <Link to="/employees" className={style.link}>
-          View Current Employees
+          → View Current Employees
         </Link>
       </nav>
     </header>
