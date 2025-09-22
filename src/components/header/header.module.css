@@ -1,0 +1,20 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    padding: var(--HR-space-4);
+    border-radius: var(--HR-radius-lg);
+    margin: 1rem;
+}
+
+.nav .logo{
+    font-size: var(--HR-h2-size);
+    font-weight: var(--HR-font-bold);
+    color: white;
+    text-decoration: none;
+}
+.nav .link{
+    color: white;
+    text-decoration: none;
+}
