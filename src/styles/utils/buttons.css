@@ -7,12 +7,16 @@
   gap: var(--HR-space-2);
   padding: var(--HR-space-2) var(--HR-space-4);
   border-radius: var(--HR-radius-md);
+  border:1px solid var(--border);
+  box-shadow:  0px 1px 2px 0px var(--accent);
   font-size: var(--HR-text-sm);
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  border: 1px solid transparent;
+}
+.button:hover{
+  background-color: var(--accent);
 }
 
 /* Variantes */
