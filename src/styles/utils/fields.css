@@ -1,0 +1,37 @@
+label {
+  display: flex;
+  font-size: var(--HR-text-sm);
+  flex-direction: column;
+  justify-content: start;
+  gap: var(--HR-space-1);
+}
+
+input,
+select {
+  width: auto;
+  padding: var(--HR-space-2);
+  border-radius: var(--HR-radius-md);
+  border: 1px solid var(--border);
+}
+
+input:focus-visible {
+  outline: 3px solid var(--ring);
+  border-radius: 3px;
+}
+
+fieldset {
+  border: 1px dashed var(--HR-neutral-border);
+  border-radius: var(--HR-radius-sm);
+  display: grid;
+  gap: var(--HR-space-4);
+  grid-column: span 2;
+  grid-template-columns: repeat(2, 1fr);
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: var(--border);
+}
+fieldset legend {
+  padding: 0 var(--HR-space-4);
+  text-align: center;
+  margin: var(--HR-space-4) 0;
+}

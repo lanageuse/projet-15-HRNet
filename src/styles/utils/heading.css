@@ -1,0 +1,36 @@
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--HR-font-family-heading);
+  margin: 0 0 var(--HR-space-4) 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--HR-h1-size);
+  font-weight: var(--HR-font-bold);
+}
+h2 {
+  font-size: var(--HR-h2-size);
+  font-weight: var(--HR-font-semibold);
+}
+h3 {
+  font-size: var(--HR-h3-size);
+  font-weight: var(--HR-font-semibold);
+}
+h4 {
+  font-size: var(--HR-h4-size);
+  font-weight: var(--HR-font-medium);
+}
+h5 {
+  font-size: var(--HR-h5-size);
+  font-weight: var(--HR-font-medium);
+}
+h6 {
+  font-size: var(--HR-h6-size);
+  font-weight: var(--HR-font-normal);
+}

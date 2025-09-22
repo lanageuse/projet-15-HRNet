@@ -1,0 +1,60 @@
+/* buttons.css */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--HR-space-2);
+  padding: var(--HR-space-2) var(--HR-space-4);
+  border-radius: var(--HR-radius-md);
+  font-size: var(--HR-text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* Variantes */
+.button--primary {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.button--primary:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.button--secondary {
+  background-color: var(--HR-neutral-light);
+  color: var(--HR-neutral-light);
+  border-color: var(--HR-neutral-light);
+}
+
+.button--secondary:hover {
+  background-color: var(--HR-neutral);
+  border-color: var(--HR-neutral);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--HR-primary);
+  border-color: var(--HR-primary);
+}
+
+.button--outline:hover {
+  background-color: var(--HR-primary-light);
+  color: var(--HR-primary-dark);
+}
+
+/* Tailles */
+.button--sm {
+  padding: var(--HR-space-1) var(--HR-space-3);
+  font-size: var(--HR-text-xs);
+}
+
+.button--lg {
+  padding: var(--HR-space-3) var(--HR-space-6);
+  font-size: var(--HR-text-md);
+}
