@@ -122,7 +122,7 @@ export default function EmployeeForm() {
             <label htmlFor="state">
               State
               <select {...register("state")} id="state" aria-required="true">
-                <option value="" selected>
+                <option value="">
                   --- Choose State ---
                 </option>
                 <option>Sales</option>
@@ -140,7 +140,7 @@ export default function EmployeeForm() {
               Zip Code
               <input
                 {...register("zipCode", {
-                  setValueAs: (value) => Number(value),
+                  setValueAs: (value) => value === "" ? undefined : Number(value) ,
                 })}
                 name="zipCode"
                 id="zip-code"
@@ -162,7 +162,7 @@ export default function EmployeeForm() {
               id="department"
               aria-required="true"
             >
-              <option value="" selected>
+              <option value="">
                 --- Choose Department ---
               </option>
               <option>Sales</option>
@@ -179,7 +179,7 @@ export default function EmployeeForm() {
         <div className={style.formBtn}>
           <button
             type="button"
-            aria-label="Submit form"
+            aria-label="Cancel form"
             className="button my-4"
             onClick={() => reset()}
           >
