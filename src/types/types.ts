@@ -22,3 +22,18 @@ export interface EmployeeState {
   employees: Employee[];
   addEmployee: (formData: Employee) => void;
 }
+
+export interface DropDownItems {
+  id: string;
+  name: string;
+}
+
+export interface DropDownOptions {
+  name: string;
+  id: string;
+  title?: string;
+  data: DropDownItems[];
+  selectId?: string;
+  selectedId: string;
+  onSelect: (item: DropDownItems) => void;
+}
