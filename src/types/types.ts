@@ -20,7 +20,12 @@ export type Employee = {
  */
 export interface EmployeeState {
   employees: Employee[];
+}
+
+export interface EmployeeAction {
   addEmployee: (formData: Employee) => void;
+  addMockEmployee: (data: Employee[]) => void;
+  reset: () => void;
 }
 
 export interface DropDownItems {

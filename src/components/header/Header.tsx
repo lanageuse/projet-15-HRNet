@@ -1,7 +1,9 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import style from "./header.module.css";
 
 export const Header = () => {
+  let location = useLocation()
+  const isHomePage = location.pathname === '/'
   return (
     <header>
       <nav className={style.nav}>
@@ -35,8 +37,8 @@ export const Header = () => {
             </text>
           </svg>
         </Link>
-        <Link to="/employees" className={style.link}>
-          → View Current Employees
+        <Link to={isHomePage ? "/employees" : "/"} className={style.link}>
+          {isHomePage ? "→ View Current Employees" : "→ Add Employee" }
         </Link>
       </nav>
     </header>
