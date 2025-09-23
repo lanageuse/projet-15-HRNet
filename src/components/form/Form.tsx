@@ -1,8 +1,11 @@
 import { useEmployeeStore } from "../../store/employeeStore";
 import style from "./Form.module.css";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, type EmployeeData } from "./formvalidation";
+import { DropDown } from "../dropdown/Dropdown";
+import { INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from "../../constants";
+import { useCallback } from "react";
 
 /**
  * Composant formulaire pour créer un nouvel employé.
@@ -13,18 +16,33 @@ import { formSchema, type EmployeeData } from "./formvalidation";
 export default function EmployeeForm() {
   const {
     register,
+    control,
     handleSubmit,
     reset,
+    trigger,
     formState: { errors },
   } = useForm<EmployeeData>({
     resolver: zodResolver(formSchema),
+    mode: "onChange",
   });
 
   const addEmployee = useEmployeeStore((state) => state.addEmployee);
-  const onSubmit = (data: EmployeeData) => {
-    addEmployee(data);
+
+  const onSubmit = useCallback(
+    (data: EmployeeData) => {
+      try {
+        addEmployee(data);
+        reset();
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
+    },
+    [reset, addEmployee]
+  );
+
+  const handleCancel = useCallback(() => {
     reset();
-  };
+  }, [reset]);
 
   return (
     <div className={style.formContainer}>
@@ -47,7 +65,9 @@ export default function EmployeeForm() {
               aria-required="true"
             />
             {errors.firstName && (
-              <p className={style.formError}>{errors.firstName.message}</p>
+              <p className={style.formError} role="alert">
+                {errors.firstName.message}
+              </p>
             )}
           </label>
 
@@ -62,7 +82,9 @@ export default function EmployeeForm() {
               aria-required="true"
             />
             {errors.lastName && (
-              <p className={style.formError}>{errors.lastName.message}</p>
+              <p className={style.formError} role="alert">
+                {errors.lastName.message}
+              </p>
             )}
           </label>
           {/* Date of Birth */}
@@ -78,7 +100,9 @@ export default function EmployeeForm() {
             />
             <small id="date-of-birth-desc">Format: MM/DD/YYYY</small>
             {errors.birthday && (
-              <p className={style.formError}>{errors.birthday.message}</p>
+              <p className={style.formError} role="alert">
+                {errors.birthday.message}
+              </p>
             )}
           </label>
 
@@ -94,7 +118,9 @@ export default function EmployeeForm() {
             />
             <small id="start-date-desc">Format: MM/DD/YYYY</small>
             {errors.startDate && (
-              <p className={style.formError}>{errors.startDate.message}</p>
+              <p className={style.formError} role="alert">
+                {errors.startDate.message}
+              </p>
             )}
           </label>
           {/* Address */}
@@ -109,30 +135,47 @@ export default function EmployeeForm() {
                 type="text"
               />
               {errors.street && (
-                <p className={style.formError}>{errors.street.message}</p>
+                <p className={style.formError} role="alert">
+                  {errors.street.message}
+                </p>
               )}
             </label>
             <label htmlFor="city">
               City
               <input {...register("city")} name="city" id="city" type="text" />
               {errors.city && (
-                <p className={style.formError}>{errors.city.message}</p>
+                <p className={style.formError} role="alert">
+                  {errors.city.message}
+                </p>
               )}
             </label>
             <label htmlFor="state">
               State
-              <select {...register("state")} id="state" aria-required="true">
-                <option value="">
-                  --- Choose State ---
-                </option>
-                <option>Sales</option>
-                <option>Marketing</option>
-                <option>Engineering</option>
-                <option>Human Resources</option>
-                <option>Legal</option>
-              </select>
-              {errors.state && (
-                <p className={style.formError}>{errors.state.message}</p>
+              <Controller
+              name="state"
+              control={control}
+              render={({ field }) => (
+                <DropDown
+                  name="state"
+                  id="state"
+                  title="--- Choose state ---"
+                  data={INITIAL_STATE_DATA}
+                  selectedId={
+                    INITIAL_STATE_DATA.find(
+                      (item) => item.name === field.value
+                    )?.id ?? ""
+                  }
+                  onSelect={(item) => {
+                    field.onChange(item.name);
+                    trigger("state");
+                  }}
+                />
+              )}
+            />
+            {errors.state && (
+                <p className={style.formError} role="alert">
+                  {errors.state.message}
+                </p>
               )}
             </label>
 
@@ -140,7 +183,8 @@ export default function EmployeeForm() {
               Zip Code
               <input
                 {...register("zipCode", {
-                  setValueAs: (value) => value === "" ? undefined : Number(value) ,
+                  setValueAs: (value) =>
+                    value === "" ? undefined : Number(value),
                 })}
                 name="zipCode"
                 id="zip-code"
@@ -149,7 +193,9 @@ export default function EmployeeForm() {
                 aria-required="true"
               />
               {errors.zipCode && (
-                <p className={style.formError}>{errors.zipCode.message}</p>
+                <p className={style.formError} role="alert">
+                  {errors.zipCode.message}
+                </p>
               )}
             </label>
           </fieldset>
@@ -157,22 +203,31 @@ export default function EmployeeForm() {
           {/* Department */}
           <label htmlFor="department">
             Department
-            <select
-              {...register("department")}
-              id="department"
-              aria-required="true"
-            >
-              <option value="">
-                --- Choose Department ---
-              </option>
-              <option>Sales</option>
-              <option>Marketing</option>
-              <option>Engineering</option>
-              <option>Human Resources</option>
-              <option>Legal</option>
-            </select>
+            <Controller
+              name="department"
+              control={control}
+              render={({ field }) => (
+                <DropDown
+                  name="department"
+                  id="department"
+                  title="--- Choose Department ---"
+                  data={INITIAL_DEPARTEMENT_DATA}
+                  selectedId={
+                    INITIAL_DEPARTEMENT_DATA.find(
+                      (item) => item.name === field.value
+                    )?.id ?? ""
+                  }
+                  onSelect={(item) => {
+                    field.onChange(item.name);
+                    trigger("department");
+                  }}
+                />
+              )}
+            />
             {errors.department && (
-              <p className={style.formError}>{errors.department.message}</p>
+              <p className={style.formError} role="alert">
+                {errors.department.message}
+              </p>
             )}
           </label>
         </div>
@@ -181,7 +236,7 @@ export default function EmployeeForm() {
             type="button"
             aria-label="Cancel form"
             className="button my-4"
-            onClick={() => reset()}
+            onClick={handleCancel}
           >
             Cancel
           </button>

@@ -71,6 +71,7 @@
   --HR-space-16: 4rem; /* 64px */
 
   /* Container widths */
+  --HR-container-xs: 320px;
   --HR-container-sm: 640px;
   --HR-container-md: 768px;
   --HR-container-lg: 1024px;
