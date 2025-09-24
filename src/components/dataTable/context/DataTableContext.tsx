@@ -52,7 +52,7 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
       ),
     [searchTerm, employees]
   );
-  
+
   // Calculs de pagination
   const totalEmployees = filteredEmployees.length;
   const indexOfLastEmployee = currentPage * employeesPerPage;
@@ -130,6 +130,12 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
     },
     [setSearchTerm, setCurrentPage]
   );
+    const handleResetSearch = useCallback(
+    () => {
+      setSearchTerm("");
+    },
+    [setSearchTerm, setCurrentPage]
+  );
 
   return (
     <DataTableContext.Provider
@@ -152,6 +158,7 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
         sortOrder,
         searchTerm,
         handleSearch,
+        handleResetSearch
       }}
     >
       {children}

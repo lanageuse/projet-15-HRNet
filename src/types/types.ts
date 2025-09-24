@@ -79,6 +79,7 @@ export interface DataTableContextType {
   sortOrder: "asc" | "desc";
   searchTerm: string;
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleResetSearch : () => void
 }
 
 /**
