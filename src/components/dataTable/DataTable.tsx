@@ -5,6 +5,7 @@ import { Tbody } from "./UI/Tbody";
 import { EMPLOYEE_MOCK_DATA } from "../../mocks/employeesMock";
 import { useEmployeeStore } from "../../store/employeeStore";
 import { DataTableProvider } from "./context/DataTableContext";
+import { SearchDataTable } from "../search/SearchDataTable";
 
 /**
  * Composant principal du tableau de données des employés
@@ -39,6 +40,7 @@ export const DataTable = () => {
           <button onClick={handleReset} className="my-4">
             Reset Employee
           </button>
+            <SearchDataTable/>
           <div className={style.dataTable}>
             <table data-slot="table" className={style.table}>
               <Thead />

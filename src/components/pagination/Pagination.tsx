@@ -21,10 +21,10 @@ export const Pagination = () => {
   return (
     <nav className={style.nav}>
         <div className="">
-            { `${currentPage} of ${pageNumbers.length} pages (${totalEmployees} employees)`}
+            { `${totalEmployees === 0 ? 0 : currentPage} of ${pageNumbers.length} pages (${totalEmployees} employees)`}
         </div>
       <ul className={style.pagination}>
-        {isFirstPage ? (
+        {isFirstPage || totalEmployees === 0 ? (
           ""
         ) : (
           <li>
@@ -54,7 +54,7 @@ export const Pagination = () => {
           </li>
         ))}
         <li>
-          {isLastPage ? (
+          {isLastPage || totalEmployees === 0 ? (
             ""
           ) : (
             <a

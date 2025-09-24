@@ -28,15 +28,33 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
   const [employeesPerPage] = useState<number>(10);
   const [sortBy, setSortBy] = useState<keyof Employee>("firstName");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   // Données du store
   const employees = useEmployeeStore((state) => state.employees);
-  
-  // Données Inital utliser pour le Thead du tableau
+
+  // Données Inital le nom des colonnes pour le header du tableau
   const theadItems = INITIAL_FORM_DATA;
 
+  /**
+   * Filtre la liste des employés selon le terme de recherche
+   * Utilise useMemo pour optimiser les performances en évitant le recalcul
+   * si les dépendances (employees, searchTerm) n'ont pas changé.
+   *
+   * @returns {Employee[]} Liste des employés selon le terme de recherche
+   */
+  const filteredEmployees = useMemo(
+    () =>
+      employees.filter((item) =>
+        Object.values(item).some((value) =>
+          value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      ),
+    [searchTerm, employees]
+  );
+  
   // Calculs de pagination
-  const totalEmployees = employees.length;
+  const totalEmployees = filteredEmployees.length;
   const indexOfLastEmployee = currentPage * employeesPerPage;
   const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
   const isLastPage =
@@ -47,8 +65,8 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
     pageNumbers.push(i);
   }
 
-  // Données à afficher 
-  const currentEmployees = employees.slice(
+  // Slice sur le tableau pour n'afficher que les emplyés de la page courant
+  const currentEmployees = filteredEmployees.slice(
     indexOfFirstEmployee,
     indexOfLastEmployee
   );
@@ -69,7 +87,7 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
     },
     [setSortBy, setSortOrder, sortBy, sortOrder]
   );
-  
+
   /**
    * Trie la liste des employés selon la colonne et l'ordre spécifiés.
    * Utilise useMemo pour optimiser les performances en évitant le recalcul
@@ -105,6 +123,14 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
     [setCurrentPage]
   );
 
+  const handleSearch = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(e.currentTarget.value);
+      setCurrentPage(1);
+    },
+    [setSearchTerm, setCurrentPage]
+  );
+
   return (
     <DataTableContext.Provider
       value={{
@@ -124,6 +150,8 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
         sortedEmployees,
         sortBy,
         sortOrder,
+        searchTerm,
+        handleSearch,
       }}
     >
       {children}

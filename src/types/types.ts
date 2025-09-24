@@ -76,7 +76,9 @@ export interface DataTableContextType {
   handleSort: (item: keyof Employee) => void;
   sortedEmployees: Employee[];
   sortBy: string;
-  sortOrder: 'asc' | 'desc';
+  sortOrder: "asc" | "desc";
+  searchTerm: string;
+  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
