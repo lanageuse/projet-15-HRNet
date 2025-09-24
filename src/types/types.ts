@@ -60,7 +60,7 @@ export interface DropDownOptions {
  * Interface du contexte de pagination pour la gestion de l'affichage des employés.
  * Fournit toutes les données et fonctions nécessaires à la pagination.
  */
-export interface PaginationContextType {
+export interface DataTableContextType {
   employeesPerPage : number
   totalEmployees : number
   pageNumbers : number[]

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PaginationContext } from "../context/PaginationContext";
+import { PaginationContext } from "../../dataTable/context/PaginationContext";
 
 /**
  * Hook personnalisé pour accéder au contexte de pagination

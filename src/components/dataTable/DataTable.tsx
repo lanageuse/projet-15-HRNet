@@ -4,7 +4,7 @@ import { Thead } from "./UI/Thead";
 import { Tbody } from "./UI/Tbody";
 import { EMPLOYEE_MOCK_DATA } from "../../mocks/employeesMock";
 import { useEmployeeStore } from "../../store/employeeStore";
-import { PaginationProvider } from "../pagination/context/PaginationContext";
+import { PaginationProvider } from "./context/PaginationContext";
 
 /**
  * Composant principal du tableau de données des employés

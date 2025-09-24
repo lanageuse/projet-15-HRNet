@@ -1,17 +1,19 @@
 import { createContext, useCallback, useState } from "react";
 import { useEmployeeStore } from "../../../store/employeeStore";
-import type { PaginationContextType, ThemeProviderProps } from "../../../types/types";
+import type { DataTableContextType, ThemeProviderProps } from "../../../types/types";
 import { INITIAL_FORM_DATA } from "../../../constants";
 
 /**
- * Contexte React pour la gestion de la pagination des employés
- * Fournit toutes les données et fonctions nécessaires à la pagination
+ * Contexte React pour la gestion du DataTable
  */
-export const PaginationContext = createContext<PaginationContextType | null>(null);
+export const DataTableContext = createContext<DataTableContextType | null>(null);
 
 /**
- * Composant Provider pour le contexte de pagination
- * Gère l'état de la pagination et calcule automatiquement les données nécessaires
+ * Composant Provider pour le contexte DataTable
+ * Gère l'état global du tableau de données incluant :
+ * - La pagination et la navigation entre les pages
+ * - Le calcul automatique des données paginées
+ * - La configuration des colonnes du tableau
  * @param children - Les composants enfants qui auront accès au contexte
  */
 export const PaginationProvider = ({ children }: ThemeProviderProps) => {
@@ -49,7 +51,7 @@ export const PaginationProvider = ({ children }: ThemeProviderProps) => {
   const theadItems = INITIAL_FORM_DATA
   
   return (
-    <PaginationContext.Provider
+    <DataTableContext.Provider
       value={{
         currentPage,
         setCurrentPage,
@@ -66,6 +68,6 @@ export const PaginationProvider = ({ children }: ThemeProviderProps) => {
       }}
     >
       {children}
-    </PaginationContext.Provider>
+    </DataTableContext.Provider>
   );
 };
