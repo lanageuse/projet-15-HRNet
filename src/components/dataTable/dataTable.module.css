@@ -67,3 +67,11 @@
   vertical-align: middle;
   word-wrap: break-word;
 }
+.dataTableHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dropDownContainer{
+  min-width: 60px;
+}

@@ -33,248 +33,248 @@ export const ERROR_FORM_MESSAGE = {
  */
 
 export const INITIAL_DEPARTEMENT_DATA = [
-  { id: "0", name: "Sales" },
-  { id: "1", name: "Marketing" },
-  { id: "2", name: "Engineering" },
-  { id: "3", name: "Human Resources" },
-  { id: "4", name: "Legal" },
+  { id: "0", value: "Sales" },
+  { id: "1", value: "Marketing" },
+  { id: "2", value: "Engineering" },
+  { id: "3", value: "Human Resources" },
+  { id: "4", value: "Legal" },
 ];
 
 export const INITIAL_STATE_DATA = [
   {
     id: "AL",
-    name: "Alabama",
+    value: "Alabama",
   },
   {
     id: "AK",
-    name: "Alaska",
+    value: "Alaska",
   },
   {
     id: "AS",
-    name: "American Samoa",
+    value: "American Samoa",
   },
   {
     id: "AZ",
-    name: "Arizona",
+    value: "Arizona",
   },
   {
     id: "AR",
-    name: "Arkansas",
+    value: "Arkansas",
   },
   {
     id: "CA",
-    name: "California",
+    value: "California",
   },
   {
     id: "CO",
-    name: "Colorado",
+    value: "Colorado",
   },
   {
     id: "CT",
-    name: "Connecticut",
+    value: "Connecticut",
   },
   {
     id: "DE",
-    name: "Delaware",
+    value: "Delaware",
   },
   {
     id: "DC",
-    name: "District Of Columbia",
+    value: "District Of Columbia",
   },
   {
     id: "FM",
-    name: "Federated States Of Micronesia",
+    value: "Federated States Of Micronesia",
   },
   {
     id: "FL",
-    name: "Florida",
+    value: "Florida",
   },
   {
     id: "GA",
-    name: "Georgia",
+    value: "Georgia",
   },
   {
     id: "GU",
-    name: "Guam",
+    value: "Guam",
   },
   {
     id: "HI",
-    name: "Hawaii",
+    value: "Hawaii",
   },
   {
     id: "ID",
-    name: "Idaho",
+    value: "Idaho",
   },
   {
     id: "IL",
-    name: "Illinois",
+    value: "Illinois",
   },
   {
     id: "IN",
-    name: "Indiana",
+    value: "Indiana",
   },
   {
     id: "IA",
-    name: "Iowa",
+    value: "Iowa",
   },
   {
     id: "KS",
-    name: "Kansas",
+    value: "Kansas",
   },
   {
     id: "KY",
-    name: "Kentucky",
+    value: "Kentucky",
   },
   {
     id: "LA",
-    name: "Louisiana",
+    value: "Louisiana",
   },
   {
     id: "ME",
-    name: "Maine",
+    value: "Maine",
   },
   {
     id: "MH",
-    name: "Marshall Islands",
+    value: "Marshall Islands",
   },
   {
     id: "MD",
-    name: "Maryland",
+    value: "Maryland",
   },
   {
     id: "MA",
-    name: "Massachusetts",
+    value: "Massachusetts",
   },
   {
     id: "MI",
-    name: "Michigan",
+    value: "Michigan",
   },
   {
     id: "MN",
-    name: "Minnesota",
+    value: "Minnesota",
   },
   {
     id: "MS",
-    name: "Mississippi",
+    value: "Mississippi",
   },
   {
     id: "MO",
-    name: "Missouri",
+    value: "Missouri",
   },
   {
     id: "MT",
-    name: "Montana",
+    value: "Montana",
   },
   {
     id: "NE",
-    name: "Nebraska",
+    value: "Nebraska",
   },
   {
     id: "NV",
-    name: "Nevada",
+    value: "Nevada",
   },
   {
     id: "NH",
-    name: "New Hampshire",
+    value: "New Hampshire",
   },
   {
     id: "NJ",
-    name: "New Jersey",
+    value: "New Jersey",
   },
   {
     id: "NM",
-    name: "New Mexico",
+    value: "New Mexico",
   },
   {
     id: "NY",
-    name: "New York",
+    value: "New York",
   },
   {
     id: "NC",
-    name: "North Carolina",
+    value: "North Carolina",
   },
   {
     id: "ND",
-    name: "North Dakota",
+    value: "North Dakota",
   },
   {
     id: "MP",
-    name: "Northern Mariana Islands",
+    value: "Northern Mariana Islands",
   },
   {
     id: "OH",
-    name: "Ohio",
+    value: "Ohio",
   },
   {
     id: "OK",
-    name: "Oklahoma",
+    value: "Oklahoma",
   },
   {
     id: "OR",
-    name: "Oregon",
+    value: "Oregon",
   },
   {
     id: "PW",
-    name: "Palau",
+    value: "Palau",
   },
   {
     id: "PA",
-    name: "Pennsylvania",
+    value: "Pennsylvania",
   },
   {
     id: "PR",
-    name: "Puerto Rico",
+    value: "Puerto Rico",
   },
   {
     id: "RI",
-    name: "Rhode Island",
+    value: "Rhode Island",
   },
   {
     id: "SC",
-    name: "South Carolina",
+    value: "South Carolina",
   },
   {
     id: "SD",
-    name: "South Dakota",
+    value: "South Dakota",
   },
   {
     id: "TN",
-    name: "Tennessee",
+    value: "Tennessee",
   },
   {
     id: "TX",
-    name: "Texas",
+    value: "Texas",
   },
   {
     id: "UT",
-    name: "Utah",
+    value: "Utah",
   },
   {
     id: "VT",
-    name: "Vermont",
+    value: "Vermont",
   },
   {
     id: "VI",
-    name: "Virgin Islands",
+    value: "Virgin Islands",
   },
   {
     id: "VA",
-    name: "Virginia",
+    value: "Virginia",
   },
   {
     id: "WA",
-    name: "Washington",
+    value: "Washington",
   },
   {
     id: "WV",
-    name: "West Virginia",
+    value: "West Virginia",
   },
   {
     id: "WI",
-    name: "Wisconsin",
+    value: "Wisconsin",
   },
   {
     id: "WY",
-    name: "Wyoming",
+    value: "Wyoming",
   },
 ];

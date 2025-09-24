@@ -25,7 +25,7 @@ export const DataTableContext = createContext<DataTableContextType | null>(
 export const DataTableProvider = ({ children }: ThemeProviderProps) => {
   // État local du composant
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [employeesPerPage] = useState<number>(10);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
   const [sortBy, setSortBy] = useState<keyof Employee>("firstName");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -55,13 +55,13 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
 
   // Calculs de pagination
   const totalEmployees = filteredEmployees.length;
-  const indexOfLastEmployee = currentPage * employeesPerPage;
-  const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
+  const indexOfLastEmployee = currentPage * itemsPerPage;
+  const indexOfFirstEmployee = indexOfLastEmployee - itemsPerPage;
   const isLastPage =
-    Math.ceil(totalEmployees / employeesPerPage) === currentPage;
+    Math.ceil(totalEmployees / itemsPerPage) === currentPage;
   const isFirstPage = currentPage === 1;
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalEmployees / employeesPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalEmployees / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -142,7 +142,7 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
       value={{
         currentPage,
         setCurrentPage,
-        employeesPerPage,
+        itemsPerPage,
         isLastPage,
         isFirstPage,
         totalEmployees,
@@ -158,7 +158,8 @@ export const DataTableProvider = ({ children }: ThemeProviderProps) => {
         sortOrder,
         searchTerm,
         handleSearch,
-        handleResetSearch
+        handleResetSearch,
+        setItemsPerPage
       }}
     >
       {children}

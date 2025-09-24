@@ -21,7 +21,7 @@ export const Pagination = () => {
   return (
     <nav className={style.nav}>
         <div className="">
-            { `${totalEmployees === 0 ? 0 : currentPage} of ${pageNumbers.length} pages (${totalEmployees} employees)`}
+            { `Showing ${totalEmployees === 0 ? 0 : currentPage} to ${pageNumbers.length} pages of ${totalEmployees} employees`}
         </div>
       <ul className={style.pagination}>
         {isFirstPage || totalEmployees === 0 ? (

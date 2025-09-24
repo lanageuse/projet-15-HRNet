@@ -6,6 +6,7 @@ import { EMPLOYEE_MOCK_DATA } from "../../mocks/employeesMock";
 import { useEmployeeStore } from "../../store/employeeStore";
 import { DataTableProvider } from "./context/DataTableContext";
 import { SearchDataTable } from "../search/SearchDataTable";
+import { ShowItem } from "../showItem/ShowItem";
 
 /**
  * Composant principal du tableau de données des employés
@@ -15,14 +16,14 @@ import { SearchDataTable } from "../search/SearchDataTable";
 export const DataTable = () => {
   const addMockEmployees = useEmployeeStore((state) => state.addMockEmployee);
   const resetMockEmployees = useEmployeeStore((state) => state.reset);
-  
+
   /**
    * Ajoute des employés fictifs pour les tests
    */
   const handleMockEmployee = () => {
     addMockEmployees(EMPLOYEE_MOCK_DATA);
   };
-  
+
   /**
    * Remet à zéro la liste des employés
    */
@@ -34,13 +35,19 @@ export const DataTable = () => {
     <>
       <DataTableProvider>
         <div className={style.dataTableContainer}>
-          <button onClick={handleMockEmployee} className="my-4">
+          <button
+            onClick={handleMockEmployee}
+            className="my-4 button button--primary"
+          >
             mock Employee
-          </button>
-          <button onClick={handleReset} className="my-4">
+          </button>{" "}
+          <button onClick={handleReset} className="my-4 button button--primary">
             Reset Employee
           </button>
-            <SearchDataTable/>
+          <div className={style.dataTableHeader}>
+            <SearchDataTable />
+            <ShowItem/>
+          </div>
           <div className={style.dataTable}>
             <table data-slot="table" className={style.table}>
               <Thead />

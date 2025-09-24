@@ -38,8 +38,8 @@ export interface EmployeeAction {
  * Structure de base pour les options sélectionnables.
  */
 export interface DropDownItems {
-  id: string;
-  name: string;
+  id : string;
+  value: string;
 }
 
 /**
@@ -61,7 +61,7 @@ export interface DropDownOptions {
  * Fournit toutes les données et fonctions nécessaires à dataTable.
  */
 export interface DataTableContextType {
-  employeesPerPage: number;
+  itemsPerPage: number;
   totalEmployees: number;
   pageNumbers: number[];
   setCurrentPage: (pageNumber: number) => void;
@@ -80,6 +80,7 @@ export interface DataTableContextType {
   searchTerm: string;
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleResetSearch : () => void
+  setItemsPerPage : (option : number) => void
 }
 
 /**

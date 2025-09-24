@@ -162,11 +162,11 @@ export default function EmployeeForm() {
                   data={INITIAL_STATE_DATA}
                   selectedId={
                     INITIAL_STATE_DATA.find(
-                      (item) => item.name === field.value
+                      (item) => item.value === field.value
                     )?.id ?? ""
                   }
                   onSelect={(item) => {
-                    field.onChange(item.name);
+                    field.onChange(item.value);
                     trigger("state");
                   }}
                 />
@@ -214,11 +214,11 @@ export default function EmployeeForm() {
                   data={INITIAL_DEPARTEMENT_DATA}
                   selectedId={
                     INITIAL_DEPARTEMENT_DATA.find(
-                      (item) => item.name === field.value
+                      (item) => item.value === field.value
                     )?.id ?? ""
                   }
                   onSelect={(item) => {
-                    field.onChange(item.name);
+                    field.onChange(item.value);
                     trigger("department");
                   }}
                 />

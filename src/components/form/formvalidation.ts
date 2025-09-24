@@ -5,8 +5,8 @@ import { ERROR_FORM_MESSAGE, INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from
  * Schéma de validation Zod pour les données d'employé incluant les informations personnelles et d'adresse.
  * Définit les règles de validation pour les champs obligatoires avec des longueurs minimales.
  */
-const department = INITIAL_DEPARTEMENT_DATA.map((s) => s.name)
-const state = INITIAL_STATE_DATA.map((s) => s.name)
+const department = INITIAL_DEPARTEMENT_DATA.map((s) => s.value)
+const state = INITIAL_STATE_DATA.map((s) => s.value)
 
 
 export const formSchema = z.object({

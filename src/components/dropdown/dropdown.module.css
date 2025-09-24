@@ -4,6 +4,7 @@
 
 .dropDownBtn,
 .dropDownList {
+  min-width:60px;
   width: 100%;
   text-align: left;
   background-color: var(--background);
@@ -15,12 +16,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 .dropDownBtn span.open{
     transform: rotate(180deg);
 }
 .dropDownList {
   position: absolute;
+  right: 0;
+  min-width:120px;
   z-index: 10;
   max-height: var(--HR-container-xs);
   overflow: hidden;

@@ -48,7 +48,7 @@ export const DropDown = ({
         onClick={() => setIsOpen(!isOpen)}
         className={style?.dropDownBtn}
       >
-        <span>{selectedItem?.name || title}</span>
+        <span>{selectedItem?.value || title}</span>
         <span className={isOpen ? style.open : ""}> {"▾"} </span>
       </button>
       {isOpen && (
@@ -67,7 +67,7 @@ export const DropDown = ({
                   selectedItem?.id === item.id ? style.selected : ""
                 }`}
               >
-                <span>{item.name}</span>
+                <span>{item.value}</span>
               </li>
             ))}
           </ul>
