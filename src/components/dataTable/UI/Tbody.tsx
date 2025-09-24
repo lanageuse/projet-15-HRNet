@@ -7,10 +7,10 @@ import style from "../dataTable.module.css";
  * Gère l'état de chargement si aucun employé n'est disponible
  */
 export const Tbody = () => {
-  const {currentEmployees} = useDataTable()
-  return currentEmployees ? (
+  const {sortedEmployees} = useDataTable()
+  return sortedEmployees ? (
     <tbody className={style.tableBody}>
-      {currentEmployees.map((employee: any, index: any) => (
+      {sortedEmployees.map((employee: any, index: any) => (
         <tr key={index} className={style.tableRow}>
           {Object.values(employee).map((value: any, index) => (
             <td key={index} className={style.tableCell}>

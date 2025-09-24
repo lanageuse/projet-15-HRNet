@@ -61,20 +61,23 @@ export interface DropDownOptions {
  * Fournit toutes les données et fonctions nécessaires à dataTable.
  */
 export interface DataTableContextType {
-  employeesPerPage : number
-  totalEmployees : number
-  pageNumbers : number[]
-  setCurrentPage : (pageNumber : number) => void
-  indexOfLastEmployee : number
-  indexOfFirstEmployee : number
-  currentEmployees : Employee[]
-  paginate : (pageNumber: number,  e: React.MouseEvent<HTMLElement>) => void
-  currentPage : number
-  isLastPage :boolean
-  isFirstPage :boolean
-  theadItems : Employee
+  employeesPerPage: number;
+  totalEmployees: number;
+  pageNumbers: number[];
+  setCurrentPage: (pageNumber: number) => void;
+  indexOfLastEmployee: number;
+  indexOfFirstEmployee: number;
+  currentEmployees: Employee[];
+  paginate: (pageNumber: number, e: React.MouseEvent<HTMLElement>) => void;
+  currentPage: number;
+  isLastPage: boolean;
+  isFirstPage: boolean;
+  theadItems: Employee;
+  handleSort: (item: keyof Employee) => void;
+  sortedEmployees: Employee[];
+  sortBy: string;
+  sortOrder: 'asc' | 'desc';
 }
-
 
 /**
  * Props pour le composant DataTableProvider
