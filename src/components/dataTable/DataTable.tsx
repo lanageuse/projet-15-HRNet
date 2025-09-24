@@ -4,7 +4,7 @@ import { Thead } from "./UI/Thead";
 import { Tbody } from "./UI/Tbody";
 import { EMPLOYEE_MOCK_DATA } from "../../mocks/employeesMock";
 import { useEmployeeStore } from "../../store/employeeStore";
-import { PaginationProvider } from "./context/PaginationContext";
+import { DataTableProvider } from "./context/DataTableContext";
 
 /**
  * Composant principal du tableau de données des employés
@@ -31,7 +31,7 @@ export const DataTable = () => {
 
   return (
     <>
-      <PaginationProvider>
+      <DataTableProvider>
         <div className={style.dataTableContainer}>
           <button onClick={handleMockEmployee} className="my-4">
             mock Employee
@@ -47,7 +47,7 @@ export const DataTable = () => {
           </div>
           <Pagination />
         </div>
-      </PaginationProvider>
+      </DataTableProvider>
     </>
   );
 };

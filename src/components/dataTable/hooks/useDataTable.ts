@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DataTableContext } from "../context/PaginationContext";
+import { DataTableContext } from "../context/DataTableContext";
 
 /**
  * Hook personnalisé pour accéder au contexte de DataTable
@@ -10,7 +10,7 @@ import { DataTableContext } from "../context/PaginationContext";
 export const useDataTable = () => {
   const context = useContext(DataTableContext);
   if (!context) {
-    throw new Error("useDatable must be used within a DataTableContext");
+    throw new Error("useDataTable must be used within a DataTableContext");
   }
   return context;
 };

@@ -57,8 +57,8 @@ export interface DropDownOptions {
 }
 
 /**
- * Interface du contexte de pagination pour la gestion de l'affichage des employés.
- * Fournit toutes les données et fonctions nécessaires à la pagination.
+ * Interface du contexte de DataTable.
+ * Fournit toutes les données et fonctions nécessaires à dataTable.
  */
 export interface DataTableContextType {
   employeesPerPage : number
@@ -77,7 +77,7 @@ export interface DataTableContextType {
 
 
 /**
- * Props pour le composant PaginationProvider
+ * Props pour le composant DataTableProvider
  */
 export type ThemeProviderProps = {
   children: ReactElement;

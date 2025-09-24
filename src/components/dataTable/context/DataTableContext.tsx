@@ -16,7 +16,7 @@ export const DataTableContext = createContext<DataTableContextType | null>(null)
  * - La configuration des colonnes du tableau
  * @param children - Les composants enfants qui auront accès au contexte
  */
-export const PaginationProvider = ({ children }: ThemeProviderProps) => {
+export const DataTableProvider = ({ children }: ThemeProviderProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [employeesPerPage] = useState(10);
 
