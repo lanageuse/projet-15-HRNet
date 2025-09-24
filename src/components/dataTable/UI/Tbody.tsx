@@ -1,4 +1,4 @@
-import { usePagination } from "../../pagination/hooks/usePagination";
+import { useDataTable } from "../hooks/useDataTable";
 import style from "../dataTable.module.css";
 
 /**
@@ -7,7 +7,7 @@ import style from "../dataTable.module.css";
  * Gère l'état de chargement si aucun employé n'est disponible
  */
 export const Tbody = () => {
-  const {currentEmployees} = usePagination()
+  const {currentEmployees} = useDataTable()
   return currentEmployees ? (
     <tbody className={style.tableBody}>
       {currentEmployees.map((employee: any, index: any) => (

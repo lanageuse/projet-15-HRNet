@@ -1,14 +1,13 @@
-import { usePagination } from "./hooks/usePagination";
+import { useDataTable } from "../dataTable/hooks/useDataTable";
 import style from "./pagination.module.css";
 
 /**
  * Composant de pagination pour naviguer entre les pages d'employés
  * Affiche les contrôles de navigation (précédent, numéros de page, suivant)
- * et les informations sur la page courante
  */
 export const Pagination = () => {
   const { setCurrentPage, currentPage, totalEmployees, pageNumbers, isLastPage, isFirstPage } =
-    usePagination();
+    useDataTable();
 
   /**
    * Gère la navigation vers une page spécifique

@@ -1,4 +1,4 @@
-import { usePagination } from "../../pagination/hooks/usePagination";
+import { useDataTable } from "../hooks/useDataTable";
 import style from "../dataTable.module.css";
 
 /**
@@ -6,7 +6,7 @@ import style from "../dataTable.module.css";
  * Affiche les colonnes avec possibilité de tri (fonctionnalité en développement)
  */
 export const Thead = () => {
-  const { theadItems } = usePagination();
+  const { theadItems } = useDataTable();
   
   return (
     <thead className={style.thead}>
