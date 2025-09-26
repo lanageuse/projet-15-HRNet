@@ -1,12 +1,12 @@
 import { Pagination } from "../pagination/Pagination";
 import style from "./dataTable.module.css";
-import { Thead } from "./UI/Thead";
-import { Tbody } from "./UI/Tbody";
+import { TableHead } from "../tableHead/TableHead";
+import { TableBody } from "../tableBody/TableBody";
 import { EMPLOYEE_MOCK_DATA } from "../../mocks/employeesMock";
 import { useEmployeeStore } from "../../store/employeeStore";
 import { DataTableProvider } from "./context/DataTableContext";
 import { SearchDataTable } from "../search/SearchDataTable";
-import { ShowItem } from "../showItem/ShowItem";
+import { ItemsPerPage } from "../ItemsPerPage/ItemsPerPage";
 
 /**
  * Composant principal du tableau de données des employés
@@ -46,12 +46,12 @@ export const DataTable = () => {
           </button>
           <div className={style.dataTableHeader}>
             <SearchDataTable />
-            <ShowItem/>
+            <ItemsPerPage/>
           </div>
           <div className={style.dataTable}>
             <table data-slot="table" className={style.table}>
-              <Thead />
-              <Tbody />
+              <TableHead />
+              <TableBody />
             </table>
           </div>
           <Pagination />

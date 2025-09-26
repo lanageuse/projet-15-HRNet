@@ -6,7 +6,7 @@ import style from "./pagination.module.css";
  * Affiche les contrôles de navigation (précédent, numéros de page, suivant)
  */
 export const Pagination = () => {
-  const { setCurrentPage, currentPage, totalEmployees, pageNumbers, isLastPage, isFirstPage } =
+  const { setCurrentPage, currentPage,pageNumbers, isLastPage, isFirstPage, totalItems, } =
     useDataTable();
 
   /**
@@ -21,10 +21,10 @@ export const Pagination = () => {
   return (
     <nav className={style.nav}>
         <div className="">
-            { `Showing ${totalEmployees === 0 ? 0 : currentPage} to ${pageNumbers.length} pages of ${totalEmployees} employees`}
+            { `Showing ${totalItems === 0 ? 0 : currentPage} to ${pageNumbers.length} pages of ${totalItems} employees`}
         </div>
       <ul className={style.pagination}>
-        {isFirstPage || totalEmployees === 0 ? (
+        {isFirstPage || totalItems === 0 ? (
           ""
         ) : (
           <li>
@@ -54,7 +54,7 @@ export const Pagination = () => {
           </li>
         ))}
         <li>
-          {isLastPage || totalEmployees === 0 ? (
+          {isLastPage || totalItems === 0 ? (
             ""
           ) : (
             <a

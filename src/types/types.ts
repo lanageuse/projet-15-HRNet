@@ -62,25 +62,25 @@ export interface DropDownOptions {
  */
 export interface DataTableContextType {
   itemsPerPage: number;
-  totalEmployees: number;
   pageNumbers: number[];
   setCurrentPage: (pageNumber: number) => void;
-  indexOfLastEmployee: number;
-  indexOfFirstEmployee: number;
-  currentEmployees: Employee[];
+  indexOfLastItem: number;
+  indexOfFirstItem: number;
+  currentItems: Employee[];
   paginate: (pageNumber: number, e: React.MouseEvent<HTMLElement>) => void;
   currentPage: number;
   isLastPage: boolean;
   isFirstPage: boolean;
   theadItems: Employee;
   handleSort: (item: keyof Employee) => void;
-  sortedEmployees: Employee[];
+  sortedItems: Employee[];
   sortBy: string;
   sortOrder: "asc" | "desc";
   searchTerm: string;
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleResetSearch : () => void
   setItemsPerPage : (option : number) => void
+  totalItems :number
 }
 
 /**

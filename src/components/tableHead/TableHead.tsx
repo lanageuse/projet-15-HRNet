@@ -1,11 +1,11 @@
-import { useDataTable } from "../hooks/useDataTable";
-import style from "../dataTable.module.css";
+import { useDataTable } from "../dataTable/hooks/useDataTable";
+import style from "../dataTable/dataTable.module.css";
 
 /**
  * Composant d'en-tête du tableau des employés
  * Affiche les colonnes avec possibilité de tri
  */
-export const Thead = () => {
+export const TableHead = () => {
   const { theadItems, handleSort, sortBy, sortOrder } = useDataTable();
   
   return (
