@@ -21,7 +21,20 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    /* Path mapping */
+    "baseUrl": "./src",
+    "paths": {
+      "@types": ["./types/index.ts"],
+      "@types/*": ["./types/*"],
+      "@components": ["./components/index.ts"],
+      "@components/*": ["./components/*"],
+      "@mocks/*": ["./mocks/*"],
+      "@store": ["./store/index.ts"],
+      "@store/*": ["./store/*"],
+      "@constants/*": ["./constants/*"],
+      "@/*": ["./*"]
+    }
   },
   "include": ["src"]
 }
