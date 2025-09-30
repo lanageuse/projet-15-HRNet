@@ -4,7 +4,6 @@ import { TableHead } from "../tableHead/TableHead";
 import { TableBody } from "../tableBody/TableBody";
 import { EMPLOYEE_MOCK_DATA } from "../../mocks/employeesMock";
 import { useEmployeeStore } from "../../store/employeeStore";
-import { DataTableProvider } from "./context/DataTableContext";
 import { SearchDataTable } from "../search/SearchDataTable";
 import { ItemsPerPage } from "../ItemsPerPage/ItemsPerPage";
 
@@ -17,10 +16,11 @@ export const DataTable = () => {
   const addMockEmployees = useEmployeeStore((state) => state.addMockEmployee);
   const resetMockEmployees = useEmployeeStore((state) => state.reset);
 
+  
   /**
    * Ajoute des employés fictifs pour les tests
-   */
-  const handleMockEmployee = () => {
+  */
+ const handleMockEmployee = () => {
     addMockEmployees(EMPLOYEE_MOCK_DATA);
   };
 
@@ -33,15 +33,14 @@ export const DataTable = () => {
 
   return (
     <>
-      <DataTableProvider>
         <div className={style.dataTableContainer}>
           <button
-            onClick={handleMockEmployee}
+            onClick={()=> handleMockEmployee()}
             className="my-4 button button--primary"
           >
             mock Employee
           </button>{" "}
-          <button onClick={handleReset} className="my-4 button button--primary">
+          <button onClick={()=> handleReset()} className="my-4 button button--primary">
             Reset Employee
           </button>
           <div className={style.dataTableHeader}>
@@ -56,7 +55,6 @@ export const DataTable = () => {
           </div>
           <Pagination />
         </div>
-      </DataTableProvider>
     </>
   );
 };
