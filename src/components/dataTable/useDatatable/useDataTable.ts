@@ -1,5 +1,5 @@
-import { getFilteredItems, useSearchStore } from "../../../store/searchStore";
-import { getSortedItems } from "../../../store/sortStore";
+import { getFilteredItems, useSearchStore } from "@store";
+import { getSortedItems } from "@store";
 
 export const useDataTable = () => {
   const items = getSortedItems();
