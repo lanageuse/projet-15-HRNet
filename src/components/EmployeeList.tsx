@@ -1,11 +1,8 @@
+// import { DataTable } from "./dataTable/DataTable";
 import { DataTable } from "./dataTable/DataTable";
 import { Header } from "./header/Header";
 
-type Props = {
-  
-};
-
-export default function EmployeeList({}: Props) {
+export default function EmployeeList() {
   return (
     <>
     <Header/>
