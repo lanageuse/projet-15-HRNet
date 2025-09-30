@@ -1,4 +1,6 @@
-import { useDataTable } from "../dataTable/hooks/useDataTable";
+import { INITIAL_FORM_DATA } from "../../constants";
+import { usePaginationStore } from "../../store/paginationStore";
+import { useSortStore } from "../../store/sortStore";
 import style from "../dataTable/dataTable.module.css";
 
 /**
@@ -6,8 +8,10 @@ import style from "../dataTable/dataTable.module.css";
  * Affiche les colonnes avec possibilité de tri
  */
 export const TableHead = () => {
-  const { theadItems, handleSort, sortBy, sortOrder } = useDataTable();
-  
+  const theadItems = INITIAL_FORM_DATA
+  const sortBy = useSortStore(state => state.sortBy)
+  const sortOrder = useSortStore(state => state.sortOrder)
+  const handleSort = useSortStore(state => state.handleSort)
   return (
     <thead className={style.thead}>
       <tr className={style.tableRow}>
