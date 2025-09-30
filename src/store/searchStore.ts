@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { usePaginationStore } from "./paginationStore";
-import type { Employee } from "../types/types";
+import type { Employee } from "@types";
 
 interface useSearchState {
   searchTerm: string;

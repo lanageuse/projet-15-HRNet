@@ -1,5 +1,5 @@
-import { usePaginationStore } from "../../../store/paginationStore";
-import { useDataTable } from "../../dataTable/useDatatable.ts/useDataTable";
+import { usePaginationStore } from "@store";
+import { useDataTable } from "../../dataTable/useDatatable/useDataTable";
 
 export const usePagination = () => {
   const { totalItems, items, filteredItems, searchTerm } = useDataTable();

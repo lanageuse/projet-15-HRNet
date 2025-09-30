@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { Employee } from "../types/types";
+import type { Employee } from "@types";
 import { useEmployeeStore } from "./employeeStore";
 
 interface UseSortState {

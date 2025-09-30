@@ -1,4 +1,4 @@
-import { type Employee } from "../types/types";
+import { type Employee } from "@types";
 
 /**
  * Données mock de employés pour faciliter le développement

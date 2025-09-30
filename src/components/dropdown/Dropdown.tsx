@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import type { DropDownItems, DropDownOptions } from "../../types/types";
+import type { DropDownItems, DropDownOptions } from "@types";
 import style from "./dropdown.module.css";
 import { useOutsideClick } from "./hooks/useOutsideClick";
 

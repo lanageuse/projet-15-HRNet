@@ -1,5 +1,5 @@
 import z from "zod";
-import { ERROR_FORM_MESSAGE, INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from "../../constants";
+import { ERROR_FORM_MESSAGE, INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from "@constants/form";
 
 /**
  * Schéma de validation Zod pour les données d'employé incluant les informations personnelles et d'adresse.

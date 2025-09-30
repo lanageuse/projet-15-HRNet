@@ -1,11 +1,5 @@
 import { create } from "zustand";
-
-interface PaginationState {
-  currentPage: number;
-  setCurrentPage: (page: number) => void;
-  itemsPerPage: number;
-  setItemsPerPage: (n: number) => void;
-}
+import type { PaginationState } from "@types";
 
 export const usePaginationStore = create<PaginationState>()((set) => ({
   currentPage: 1,

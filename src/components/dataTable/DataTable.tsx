@@ -1,11 +1,11 @@
-import { Pagination } from "../pagination/Pagination";
+import { Pagination } from "@components";
+import { TableHead } from "@components";
+import { TableBody } from "@components";
+import { EMPLOYEE_MOCK_DATA } from "@mocks/employeesMock";
+import { useEmployeeStore } from "@store";
+import { SearchDataTable } from "@components";
+import { ItemsPerPage } from "@components";
 import style from "./dataTable.module.css";
-import { TableHead } from "../tableHead/TableHead";
-import { TableBody } from "../tableBody/TableBody";
-import { EMPLOYEE_MOCK_DATA } from "../../mocks/employeesMock";
-import { useEmployeeStore } from "../../store/employeeStore";
-import { SearchDataTable } from "../search/SearchDataTable";
-import { ItemsPerPage } from "../ItemsPerPage/ItemsPerPage";
 
 /**
  * Composant principal du tableau de données des employés

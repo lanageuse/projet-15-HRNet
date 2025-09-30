@@ -1,4 +1,4 @@
-import { useSearchStore } from '../../store/searchStore';
+import { useSearchStore } from '@store';
 import style from './searchDataTable.module.css'
 export const SearchDataTable = () => {
    const searchTerm = useSearchStore(state => state.searchTerm)
