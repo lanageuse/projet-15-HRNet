@@ -1,11 +1,8 @@
-import { useEmployeeStore } from "../../store/employeeStore";
 import style from "./Form.module.css";
-import { Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema, type EmployeeData } from "./formvalidation";
+import { Controller } from "react-hook-form";
 import { DropDown } from "../dropdown/Dropdown";
-import { INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from "../../constants";
-import { useCallback } from "react";
+import { INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from "@constants/form";
+import { useEmployeeForm } from "./hooks/useEmployeeForm";
 
 /**
  * Composant formulaire pour créer un nouvel employé.
@@ -13,36 +10,8 @@ import { useCallback } from "react";
  * Utilise le store d'employés pour ajouter l'employé lors de la soumission.
  */
 
-export default function EmployeeForm() {
-  const {
-    register,
-    control,
-    handleSubmit,
-    reset,
-    trigger,
-    formState: { errors },
-  } = useForm<EmployeeData>({
-    resolver: zodResolver(formSchema),
-    mode: "onChange",
-  });
-
-  const addEmployee = useEmployeeStore((state) => state.addEmployee);
-
-  const onSubmit = useCallback(
-    (data: EmployeeData) => {
-      try {
-        addEmployee(data);
-        reset();
-      } catch (error) {
-        console.error("Error submitting form:", error);
-      }
-    },
-    [reset, addEmployee]
-  );
-
-  const handleCancel = useCallback(() => {
-    reset();
-  }, [reset]);
+export function EmployeeForm() {
+  const {control, trigger, handleSubmit, register, onSubmit, errors, handleCancel, } = useEmployeeForm();
 
   return (
     <div className={style.formContainer}>
@@ -152,27 +121,27 @@ export default function EmployeeForm() {
             <label htmlFor="state">
               State
               <Controller
-              name="state"
-              control={control}
-              render={({ field }) => (
-                <DropDown
-                  name="state"
-                  id="state"
-                  title="--- Choose state ---"
-                  data={INITIAL_STATE_DATA}
-                  selectedId={
-                    INITIAL_STATE_DATA.find(
-                      (item) => item.value === field.value
-                    )?.id ?? ""
-                  }
-                  onSelect={(item) => {
-                    field.onChange(item.value);
-                    trigger("state");
-                  }}
-                />
-              )}
-            />
-            {errors.state && (
+                name="state"
+                control={control}
+                render={({ field }) => (
+                  <DropDown
+                    name="state"
+                    id="state"
+                    title="--- Choose state ---"
+                    data={INITIAL_STATE_DATA}
+                    selectedId={
+                      INITIAL_STATE_DATA.find(
+                        (item) => item.value === field.value
+                      )?.id ?? ""
+                    }
+                    onSelect={(item) => {
+                      field.onChange(item.value);
+                      trigger("state");
+                    }}
+                  />
+                )}
+              />
+              {errors.state && (
                 <p className={style.formError} role="alert">
                   {errors.state.message}
                 </p>
