@@ -1,28 +1,36 @@
-import { useDataTable } from "../dataTable/hooks/useDataTable";
+import { useCallback } from "react";
 import style from "./pagination.module.css";
+import { usePagination } from "./hooks/usePagination";
 
 /**
  * Composant de pagination pour naviguer entre les pages d'employés
  * Affiche les contrôles de navigation (précédent, numéros de page, suivant)
  */
 export const Pagination = () => {
-  const { setCurrentPage, currentPage,pageNumbers, isLastPage, isFirstPage, totalItems, } =
-    useDataTable();
+
+  const {currentPage, setCurrentPage, totalItems, isLastPage, isFirstPage, pageNumbers, indexOfFirstItem, indexOfLastItem} = usePagination()
+
 
   /**
-   * Gère la navigation vers une page spécifique
+   * Fonction pour naviguer vers une page spécifique
    * @param pageNumber - Numéro de la page à afficher
-   * @param e - Événement de clic pour empêcher le comportement par défaut du lien
+   * @param e - Événement de clic pour empêcher le comportement par défaut
    */
-  const paginate = (pageNumber: number, e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setCurrentPage(pageNumber);
-  };
+  const paginate = useCallback(
+    (pageNumber: number, e: React.MouseEvent<HTMLElement>) => {
+      e.preventDefault();
+      setCurrentPage(pageNumber);
+    },
+    [setCurrentPage]
+  );
+
   return (
     <nav className={style.nav}>
-        <div className="">
-            { `Showing ${totalItems === 0 ? 0 : currentPage} to ${pageNumbers.length} pages of ${totalItems} employees`}
-        </div>
+      <div className="">
+        {`Showing ${totalItems === 0 ? 0 : Math.max(indexOfFirstItem, 1)} to ${
+          Math.min(indexOfLastItem, totalItems)
+        } employees of ${totalItems} employees`}
+      </div>
       <ul className={style.pagination}>
         {isFirstPage || totalItems === 0 ? (
           ""
@@ -37,7 +45,7 @@ export const Pagination = () => {
             </a>
           </li>
         )}
-        {pageNumbers.map((number : number) => (
+        {pageNumbers.map((number: number) => (
           <li
             key={number}
             className={`${style.paginationItem} ${
