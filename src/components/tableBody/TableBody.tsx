@@ -1,7 +1,7 @@
-import { useSearchStore } from "../../store/searchStore";
-import type { Employee } from "../../types/types";
+import { useSearchStore } from "@store";
+import type { Employee } from "@types";
 import style from "../dataTable/dataTable.module.css";
-import { usePagination } from "../pagination/hooks/usePagination";
+import { usePagination } from "@components/pagination/hooks/usePagination";
 
 /**
  * Composant du corps du tableau des employés

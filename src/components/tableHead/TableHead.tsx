@@ -1,6 +1,5 @@
-import { INITIAL_FORM_DATA } from "../../constants";
-import { usePaginationStore } from "../../store/paginationStore";
-import { useSortStore } from "../../store/sortStore";
+import { INITIAL_FORM_DATA } from "@constants/form";
+import { useSortStore } from "@store";
 import style from "../dataTable/dataTable.module.css";
 
 /**

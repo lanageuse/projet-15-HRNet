@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { EmployeeAction, EmployeeState } from "../types/types";
+import type { EmployeeAction, EmployeeState } from "@types";
 import { persist } from "zustand/middleware";
 
 /**

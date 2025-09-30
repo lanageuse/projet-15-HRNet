@@ -1,8 +1,8 @@
 import { useCallback } from "react";
-import type { DropDownItems } from "../../types/types";
-import { DropDown } from "../dropdown/Dropdown";
-import { usePaginationStore } from "../../store/paginationStore";
-import { ITEM_PER_PAGE } from "../../constants";
+import type { DropDownItems } from "@types";
+import { DropDown } from "@components";
+import { usePaginationStore } from "@store";
+import { ITEM_PER_PAGE } from "@constants/pagination";
 
 export const ItemsPerPage = () => {
   const setItemsPerPage = usePaginationStore((state) => state.setItemsPerPage);

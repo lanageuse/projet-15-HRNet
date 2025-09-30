@@ -1,12 +1,12 @@
-import EmployeeForm from "../components/form/Form";
-import { Header } from "../components/header/Header";
+import { EmployeeForm } from "@components";
+import { Header } from "@components";
 
 type Props = {};
 
 export default function home({}: Props) {
   return (
     <>
-      <Header/>
+      <Header />
       <div className="main">
         <EmployeeForm />
       </div>
