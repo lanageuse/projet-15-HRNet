@@ -10,6 +10,7 @@ export const DropDown = ({
   data,
   selectedId,
   onSelect,
+  closeOnSelect = false
 }: DropDownOptions) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<DropDownItems | undefined>(
@@ -22,6 +23,10 @@ export const DropDown = ({
   const handleChange = useCallback(
     (item: DropDownItems) => {
       onSelect && onSelect(item);
+      if(closeOnSelect){
+        setIsOpen(false)
+      }
+      setSelectedItem(item)
     },
     [onSelect]
   );

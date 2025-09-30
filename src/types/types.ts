@@ -38,7 +38,7 @@ export interface EmployeeAction {
  * Structure de base pour les options sélectionnables.
  */
 export interface DropDownItems {
-  id : string;
+  id: string;
   value: string;
 }
 
@@ -54,6 +54,7 @@ export interface DropDownOptions {
   selectId?: string;
   selectedId: string;
   onSelect: (item: DropDownItems) => void;
+  closeOnSelect ?: boolean;
 }
 
 /**
@@ -78,9 +79,9 @@ export interface DataTableContextType {
   sortOrder: "asc" | "desc";
   searchTerm: string;
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleResetSearch : () => void
-  setItemsPerPage : (option : number) => void
-  totalItems :number
+  handleResetSearch: () => void;
+  setItemsPerPage: (option: number) => void;
+  totalItems: number;
 }
 
 /**
