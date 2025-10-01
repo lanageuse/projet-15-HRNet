@@ -1,0 +1,125 @@
+/* Styles de base pour l'overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(55, 65, 81, 0.3);
+}
+
+/* Animations pour l'overlay */
+.modal-overlay--fade {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Styles pour la modal */
+.modal {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tailles de modal */
+.modal--small {
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal--medium {
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal--large {
+  width: 90%;
+  max-width: 900px;
+}
+
+.modal--auto {
+  width: auto;
+  max-width: 90vw;
+}
+
+/* Animations pour la modal */
+.modal--fade {
+  animation: modalFadeIn 0.3s ease;
+}
+
+/* Header de la modal */
+.modal__header {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.modal__close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: grey;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__close:hover {
+  color: #374151;
+}
+
+/* Contenu de la modal */
+.modal__content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+/* Footer de la modal */
+.modal__footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Keyframes pour les animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal--small,
+  .modal--medium,
+  .modal--large {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .modal__header,
+  .modal__content,
+  .modal__footer {
+    padding: 1rem;
+  }
+}
