@@ -3,6 +3,7 @@ import { Controller } from "react-hook-form";
 import { DropDown } from "../dropdown/Dropdown";
 import { INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from "@constants/form";
 import { useEmployeeForm } from "./hooks/useEmployeeForm";
+import { Modal } from "@components/modal/Modal";
 
 /**
  * Composant formulaire pour créer un nouvel employé.
@@ -11,7 +12,16 @@ import { useEmployeeForm } from "./hooks/useEmployeeForm";
  */
 
 export function EmployeeForm() {
-  const {control, trigger, handleSubmit, register, onSubmit, errors, handleCancel, } = useEmployeeForm();
+  const {
+    control,
+    trigger,
+    handleSubmit,
+    register,
+    onSubmit,
+    errors,
+    handleCancel,
+    modal,
+  } = useEmployeeForm();
 
   return (
     <div className={style.formContainer}>
@@ -218,6 +228,15 @@ export function EmployeeForm() {
           </button>
         </div>
       </form>
+      {modal.isOpen && (
+        <Modal
+          isOpen={modal.isOpen}
+          onClose={modal.closeModal}
+          options={modal.options}
+        >
+          {modal.options.content}
+        </Modal>
+      )}
     </div>
   );
 }
