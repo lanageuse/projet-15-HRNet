@@ -1,9 +1,6 @@
 import { EmployeeForm } from "@components";
 import { Header } from "@components";
-
-type Props = {};
-
-export default function home({}: Props) {
+export default function home() {
   return (
     <>
       <Header />
