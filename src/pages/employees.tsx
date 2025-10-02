@@ -1,10 +1,6 @@
 import EmployeeList from "../components/EmployeeList";
 
-type Props = {
-  
-};
-
-export default function employeesList({}: Props) {
+export default function employeesList() {
   return (
     <EmployeeList/>
   )
