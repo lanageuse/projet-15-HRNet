@@ -5,7 +5,7 @@
   padding: var(--HR-space-8);
 }
 .formContainer form {
-  width:100%;
+  width: 100%;
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--HR-radius-lg);
@@ -17,29 +17,34 @@
   gap: var(--HR-space-4);
   width: 100%;
 }
+@media (max-width: 640px) {
+  .formGrid {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 .formGrid small {
   font-size: var(--HR-text-xs);
   color: var(--HR-neutral-light);
 }
 
-.formBtn{
+.formBtn {
   display: flex;
-  gap:var(--HR-space-4);
+  gap: var(--HR-space-4);
   justify-content: end;
   align-items: center;
 }
 
-.formError{
-  color:var(--primary);
+.formError {
+  color: var(--primary);
   font-size: var(--HR-text-xs);
   padding-left: var(--HR-space-2);
 }
-.formError::before{
+.formError::before {
   content: "⚠️";
   font-size: var(--HR-text-xs);
   margin-right: var(--HR-space-2);
-
 }
 
 @media (max-width: 640px) {
