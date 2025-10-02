@@ -10,6 +10,8 @@ import { BrowserRouter } from "react-router";
  */
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+      <title>{import.meta.env.VITE_APP_TITLE}</title>
+      <meta name="description" content="HRNet software application"/>
     <BrowserRouter>
       <App />
     </BrowserRouter>

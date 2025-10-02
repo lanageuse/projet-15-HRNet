@@ -7,14 +7,13 @@ import { lazy, Suspense } from "react";
  */
 function App() {
   const Home = lazy(() => import("./pages/home"));
-  const EmployeeList = lazy(() => import("./pages/employees"));
+  const Employees = lazy(() => import("./pages/employees"));
   return (
     <>
-    <title>{import.meta.env.VITE_APP_TITLE}</title>
       <Suspense fallback="loading...">
           <Routes>
             <Route index element={<Home/>}></Route>
-            <Route path="/employees" element={<EmployeeList/>}></Route>
+            <Route path="/employees" element={<Employees/>}></Route>
           </Routes>
       </Suspense>
     </>
