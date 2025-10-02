@@ -1,28 +1,33 @@
-import { INITIAL_FORM_DATA } from "@constants/form";
 import { useSortStore } from "@store";
 import style from "../dataTable/dataTable.module.css";
+import { TABLE_HEAD_DATA } from "@constants/tableHead";
+import { useMemo } from "react";
 
 /**
- * Composant d'en-tête du tableau des employés
+ * Composant d'en-tête du tableau
  * Affiche les colonnes avec possibilité de tri
  */
 export const TableHead = () => {
-  const theadItems = INITIAL_FORM_DATA
+  const theadItems = useMemo(() => Object.entries(TABLE_HEAD_DATA), [])
   const sortBy = useSortStore(state => state.sortBy)
   const sortOrder = useSortStore(state => state.sortOrder)
   const handleSort = useSortStore(state => state.handleSort)
   return (
     <thead className={style.thead}>
       <tr className={style.tableRow}>
-        {Object.keys(theadItems).map((item) => (
-          <th
-            key={item}
+        {theadItems.map( (item) => {
+          const [key, label] = item
+          return (
+            <th
+            key={`${label}-${key}`}
             className={style.tableHead}
-            onClick={()=>handleSort(item as keyof typeof theadItems)}
+            onClick={()=>handleSort(key as keyof typeof TABLE_HEAD_DATA)}
           >
-            {item} <span>{sortBy === item && (sortOrder === "asc" ? "↑↓" : "↓↑")}</span>
+            {label} <span>{sortBy === key && (sortOrder === "asc" ? "↑↓" : "↓↑")}</span>
           </th>
-        ))}
+          )
+        }
+        )}
       </tr>
     </thead>
   );
