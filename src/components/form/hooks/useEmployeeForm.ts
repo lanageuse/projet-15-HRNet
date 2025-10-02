@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback } from "react";
 import { formSchema, type EmployeeData } from "../formvalidation";
-import { useModal } from "@components/modal/hooks/useModal";
+import { useModal } from "@liron-0654/react-lib-modal";
+import '@liron-0654/react-lib-modal/style.css'
 
 export const useEmployeeForm = () => {
   const {
@@ -20,7 +21,6 @@ export const useEmployeeForm = () => {
 
   const modal = useModal();
   const addEmployee = useEmployeeStore((state) => state.addEmployee);
-
   const onSubmit = useCallback(
     (data: EmployeeData) => {
       try {
