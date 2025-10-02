@@ -3,7 +3,7 @@ import { Controller } from "react-hook-form";
 import { DropDown } from "../dropdown/Dropdown";
 import { INITIAL_DEPARTEMENT_DATA, INITIAL_STATE_DATA } from "@constants/form";
 import { useEmployeeForm } from "./hooks/useEmployeeForm";
-import { Modal } from "@components/modal/Modal";
+import { Modal } from "@liron-0654/react-lib-modal";
 
 /**
  * Composant formulaire pour créer un nouvel employé.
@@ -228,15 +228,10 @@ export function EmployeeForm() {
           </button>
         </div>
       </form>
-      {modal.isOpen && (
-        <Modal
-          isOpen={modal.isOpen}
-          onClose={modal.closeModal}
-          options={modal.options}
-        >
-          {modal.options.content}
-        </Modal>
-      )}
+      {/* Modal de confirmation */}
+      <Modal isOpen={modal.isOpen} onClose={modal.closeModal}>
+        <p>{modal.options?.content || "Employee added !"}</p>
+      </Modal>
     </div>
   );
 }
