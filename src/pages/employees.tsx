@@ -5,7 +5,9 @@ export default function employeesList() {
   return (
     <>
       <Header />
-      <DataTable/>
+      <div className="main">
+        <DataTable />
+      </div>
     </>
   );
 }
