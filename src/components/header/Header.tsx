@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <header>
       <nav className={style.nav}>
-        <Link to="/" className={style.logo}>
+        <Link to="/" className={style.logo} aria-label="HRNet Logo">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="100 -35 620 230"
@@ -40,7 +40,7 @@ export const Header = () => {
             </text>
           </svg>
         </Link>
-        <Link to={isHomePage ? "/employees" : "/"} className={style.link}>
+        <Link to={isHomePage ? "/employees" : "/"} className={style.link} aria-label="view current employees">
           {isHomePage ? "→ View Current Employees" : "→ Add Employee" }
         </Link>
       </nav>
