@@ -3,6 +3,7 @@
   width: var(--HR-container-xl);
   padding: var(--HR-space-8);
 }
+
 .dataTable {
   width: 100%;
   border: 1px solid var(--border);
@@ -13,8 +14,22 @@
   overflow-x: auto;
 }
 .dataTable .table {
+  table-layout: fixed;
   width: 100%;
+  min-width: 1024px;
   font-size: var(--HR-text-sm);
+}
+@media (max-width: 1290px) {
+  .dataTableContainer {
+    width: auto;
+  }
+  .dataTable{
+    width:100%;
+    min-width:100%;
+  }
+  .dataTable .table {
+    width: 100%;
+  }
 }
 .dataTable .capitalize {
   text-transform: capitalize;
@@ -22,24 +37,17 @@
 .dataTable .tableHead {
   color: var(--foreground);
   height: var(--HR-space-10);
-  padding: var(--HR-space-4);
+  padding: var(--HR-space-4) var(--HR-space-4);
   text-align: left;
   font-weight: var(--HR-font-semibold);
   word-wrap: break-word;
-  padding-right: 0;
   vertical-align: middle;
 }
-.dataTable .tableHead span{
-  color: var(--foreground);
-  height: var(--HR-space-10);
-  padding: var(--HR-space-4);
-  text-align: left;
-  font-weight: var(--HR-font-semibold);
-  word-wrap: break-word;
-  padding-right: 0;
+.dataTable .tableHead span {
+  width: 11px;
 }
 
-.dataTable tr:hover{
+.dataTable tr:hover {
   background-color: var(--accent);
 }
 .dataTable tr.tableRow {
@@ -53,7 +61,7 @@
     border-width: 0 0 1px 0;
   }
 }
-.dataTable .noResult{
+.dataTable .noResult {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,15 +71,17 @@
 }
 
 .dataTable .tableCell {
-  padding: var(--HR-space-4);
+  padding: var(--HR-space-4) var(--HR-space-2);
   vertical-align: middle;
-  word-wrap: break-word;
+  overflow: hidden;
+  white-space: collapse;
+  text-overflow: "...";
 }
-.dataTableHeader{
+.dataTableHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.dropDownContainer{
+.dropDownContainer {
   min-width: 60px;
 }
