@@ -53,6 +53,18 @@
   color: var(--HR-primary-dark);
 }
 
+.button--thead{
+  background-color: transparent;
+  border:none;
+  box-shadow: none;
+  padding: 0;
+  font-family: inherit;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Tailles */
 .button--sm {
   padding: var(--HR-space-1) var(--HR-space-3);

@@ -8,26 +8,27 @@ import { useMemo } from "react";
  * Affiche les colonnes avec possibilité de tri
  */
 export const TableHead = () => {
-  const theadItems = useMemo(() => Object.entries(TABLE_HEAD_DATA), [])
-  const sortBy = useSortStore(state => state.sortBy)
-  const sortOrder = useSortStore(state => state.sortOrder)
-  const handleSort = useSortStore(state => state.handleSort)
+  const theadItems = useMemo(() => Object.entries(TABLE_HEAD_DATA), []);
+  const sortBy = useSortStore((state) => state.sortBy);
+  const sortOrder = useSortStore((state) => state.sortOrder);
+  const handleSort = useSortStore((state) => state.handleSort);
   return (
     <thead className={style.thead}>
       <tr className={style.tableRow}>
-        {theadItems.map( (item) => {
-          const [key, label] = item
+        {theadItems.map((item) => {
+          const [key, label] = item;
           return (
-            <th
-            key={`${label}-${key}`}
-            className={style.tableHead}
-            onClick={()=>handleSort(key as keyof typeof TABLE_HEAD_DATA)}
-          >
-            {label} <span>{sortBy === key && (sortOrder === "asc" ? "↑↓" : "↓↑")}</span>
-          </th>
-          )
-        }
-        )}
+            <th key={`${label}-${key}`} className={style.tableHead}>
+              <button
+                onClick={() => handleSort(key as keyof typeof TABLE_HEAD_DATA)}
+                className="button button--thead"
+              >
+                {label}{" "}
+                  <span>{sortBy === key && (sortOrder === "asc" ? "↓" : "↑")}</span>
+              </button>
+            </th>
+          );
+        })}
       </tr>
     </thead>
   );
