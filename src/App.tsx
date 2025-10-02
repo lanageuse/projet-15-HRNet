@@ -10,6 +10,7 @@ function App() {
   const EmployeeList = lazy(() => import("./pages/employees"));
   return (
     <>
+    <title>{import.meta.env.VITE_APP_TITLE}</title>
       <Suspense fallback="loading...">
           <Routes>
             <Route index element={<Home/>}></Route>

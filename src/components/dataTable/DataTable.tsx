@@ -29,10 +29,11 @@ export const DataTable = () => {
   const handleReset = () => {
     resetMockEmployees();
   };
+  console.log(import.meta.env.VITE_MODE)
   return (
     <>
       <div className={style.dataTableContainer}>
-        {import.meta.env.MODE === "development" && (
+        {import.meta.env.VITE_MODE === "development" && (
           <>
             <button
               onClick={() => handleMockEmployee()}
