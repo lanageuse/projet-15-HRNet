@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router";
 import style from "./header.module.css";
 
+/**
+ * Composant d'en-tête de l'application avec navigation.
+ */
 export const Header = () => {
   let location = useLocation()
   const isHomePage = location.pathname === '/'

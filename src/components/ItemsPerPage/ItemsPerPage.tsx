@@ -4,6 +4,10 @@ import { DropDown } from "@components";
 import { usePaginationStore } from "@store";
 import { ITEM_PER_PAGE } from "@constants/pagination";
 
+/**
+ * Composant pour sélectionner le nombre d'éléments affichés par page.
+ * Remet automatiquement la pagination à la page 1 lors d'un changement.
+ */
 export const ItemsPerPage = () => {
   const setItemsPerPage = usePaginationStore((state) => state.setItemsPerPage);
   const itemsPerPage = usePaginationStore((state) => state.itemsPerPage);

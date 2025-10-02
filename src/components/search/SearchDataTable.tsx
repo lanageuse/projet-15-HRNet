@@ -1,5 +1,10 @@
 import { useSearchStore } from '@store';
 import style from './searchDataTable.module.css'
+
+/**
+ * Composant de recherche pour DataTable.
+ * La recherche s'effectue sur toutes les propriétés des employés.
+ */
 export const SearchDataTable = () => {
    const searchTerm = useSearchStore(state => state.searchTerm)
    const handleSearch = useSearchStore(state => state.handleSearch)
