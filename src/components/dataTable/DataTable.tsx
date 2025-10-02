@@ -29,7 +29,6 @@ export const DataTable = () => {
   const handleReset = () => {
     resetMockEmployees();
   };
-  console.log(import.meta.env.VITE_MODE)
   return (
     <>
       <div className={style.dataTableContainer}>
