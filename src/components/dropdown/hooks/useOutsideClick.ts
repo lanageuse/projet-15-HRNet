@@ -1,5 +1,12 @@
 import { useEffect, useRef } from 'react';
 
+/**
+ * Hook personnalisé pour détecter les clics à l'extérieur d'un élément.
+ * Supporte les événements mouse et touch pour les appareils mobiles.
+ * 
+ * @param {Function} callback - Fonction appelée lors d'un clic extérieur
+ * @returns {React.RefObject<HTMLDivElement>} Référence à attacher à l'élément à surveiller
+ */
 export const useOutsideClick = (callback: () => void) => {
   const ref = useRef<HTMLDivElement>(null);
 

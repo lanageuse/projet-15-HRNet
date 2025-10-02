@@ -3,6 +3,12 @@ import type { DropDownItems, DropDownOptions } from "@types";
 import style from "./dropdown.module.css";
 import { useOutsideClick } from "./hooks/useOutsideClick";
 
+/**
+ * Composant dropdown réutilisable
+ * Permet de sélectionner un élément dans une liste déroulante.
+ * 
+ * @param {DropDownOptions} props - Options de configuration du dropdown
+ */
 export const DropDown = ({
   name,
   id,

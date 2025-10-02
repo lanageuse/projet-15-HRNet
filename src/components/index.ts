@@ -1,4 +1,9 @@
 
+/**
+ * Point d'entrée centralisé pour tous les composants de l'application.
+ * 
+ **/
+
 export {Pagination} from '../components/pagination/Pagination'
 export {TableHead} from '../components/tableHead/TableHead'
 export {TableBody} from '../components/tableBody/TableBody'
