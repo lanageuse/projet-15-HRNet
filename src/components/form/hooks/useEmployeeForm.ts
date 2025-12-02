@@ -1,15 +1,14 @@
 import { useEmployeeStore } from "@store";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback } from "react";
 import { formSchema, type EmployeeData } from "../formvalidation";
 import { useModal } from "@liron-0654/react-lib-modal";
-import '@liron-0654/react-lib-modal/style.css'
+import "@liron-0654/react-lib-modal/style.css";
 
 /**
  * Hook personnalisé pour la gestion du formulaire d'employé.
  * Intègre React Hook Form avec validation Zod, gestion du store et modal de confirmation.
- * 
+ *
  * @returns {Object} Objet contenant les méthodes et états du formulaire
  * @returns {Function} onSubmit - Fonction de soumission du formulaire
  * @returns {Function} handleCancel - Fonction d'annulation/reset du formulaire
@@ -34,39 +33,31 @@ export const useEmployeeForm = () => {
   });
 
   const modal = useModal();
-  const addEmployee = useEmployeeStore((state) => state.addEmployee);
-  const onSubmit = useCallback(
-    (data: EmployeeData) => {
-      try {
-        addEmployee(data);
-        reset();
-        // Ouvrir la modal avec un message de succès
-        modal.openModal({
-          content: "Employee added!",
-          size: "small",
-          position: "center"
-        });
-      } catch (error) {
-        console.error("Error submitting form:", error);
-      }
-    },
-    [reset, addEmployee, modal]
-  );
 
-  const handleCancel = useCallback(() => {
+  const addEmployee = useEmployeeStore((state) => state.addEmployee);
+  const onSubmit = (data: EmployeeData) => {
+      addEmployee(data);
+      reset();
+      // Ouvrir la modal avec un message de succès
+      modal.openModal({
+        content: "Employee added!",
+        size: "small",
+        position: "center",
+      });
+  };
+
+  const handleCancel = () => {
     reset();
-  }, [reset]);
+  };
 
   return {
     onSubmit,
-    addEmployee,
     handleCancel,
     register,
     control,
     handleSubmit,
-    reset,
     trigger,
     errors,
-    modal
+    modal,
   };
 };
