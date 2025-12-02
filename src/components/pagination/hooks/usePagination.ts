@@ -1,5 +1,5 @@
 import { usePaginationStore } from "@store";
-import { useDataTable } from "../../dataTable/useDatatable/useDataTable";
+import { useDataTable } from "../../dataTable/hooks/useDataTable";
 
 /**
  * Hook personnalisé pour la gestion de la pagination.
