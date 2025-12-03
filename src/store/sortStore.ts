@@ -26,7 +26,7 @@ interface UseSortState {
  * - sortOrder : ordre de tri actuel ("asc" ou "desc")
  * - setSortBy : définit la colonne de tri
  * - setSortOrder : bascule l'ordre de tri
- * - handleSort : gère le tri intelligent d'une colonne
+ * - handleSort : gère le tri d'une colonne
  * 
  * @returns {UseSortState} L'état et les actions pour gérer le tri
  */
@@ -37,7 +37,7 @@ export const useSortStore = create<UseSortState>()((set, get) => ({
   setSortOrder: () =>
     set({ sortOrder: get().sortOrder === "asc" ? "desc" : "asc" }),
   /**
-   * Gère le tri intelligent d'une colonne.
+   * Gère le tri d'une colonne.
    * Si la colonne est déjà sélectionnée, inverse l'ordre de tri.
    * Sinon, sélectionne la nouvelle colonne avec un tri croissant.
    * @param item - Nom de la colonne pour initialiser le tri
