@@ -32,7 +32,7 @@ export const DataTable = () => {
   return (
     <>
       <div className={style.dataTableContainer}>
-        {import.meta.env.VITE_MODE === "development" && (
+        {import.meta.env.DEV && (
           <>
             <button
               onClick={() => handleMockEmployee()}
